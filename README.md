@@ -13,8 +13,8 @@ The save system should allow different implementations of IDataSerializer to be 
 Interface Segregation Principle (ISP):
 The save system should not depend on methods it does not use. Therefore, we can split IDataSaver into separate interfaces for local and cloud-based saving.
 
-public class SaveSystem
-{
+
+
     public SaveSystem(IDataSaver saver, IDataSerializer serializer)
     {
         _saver = saver;
@@ -32,7 +32,7 @@ public class SaveSystem
         var serializedData = _saver.LoadData();
         return _serializer.DeserializeData(serializedData);
     }
-}
+
 
 Dependency Inversion Principle (DIP):
 The save system should depend on abstractions rather than concretions. Therefore, we can inject the IDataSaver and IDataSerializer interfaces into the SaveSystem constructor, and the ILocalDataSaver and ICloudDataSaver interfaces into their respective implementations.
