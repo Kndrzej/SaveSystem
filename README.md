@@ -15,9 +15,6 @@ The save system should not depend on methods it does not use. Therefore, we can 
 
 public class SaveSystem
 {
-    private readonly IDataSaver _saver;
-    private readonly IDataSerializer _serializer;
-
     public SaveSystem(IDataSaver saver, IDataSerializer serializer)
     {
         _saver = saver;
